@@ -1,19 +1,16 @@
-import React from "react";
 import { todos } from "../todo";
 
 export const ItemsList = () => {
-  const [todoItems, setTodoItems] = React.useState(todos);
 
   // updates status of an item
   const changeStatus = (indx) => {
-    // console.log("click", indx, todos[0]);
-    todoItems[indx].status = todoItems[indx].status === "done" ? "todo" : "done";
-    setTodoItems([...todoItems]);
-    console.log("todos", todoItems);
+    console.log("click", indx, todos[0]);
+    todos[indx].status = todos[indx].status === "done" ? "todo" : "done";
+    // console.log("todos", todos);
   };
 
   // renders list of items
-  const renderList = todoItems.map((item, index) => {
+  const renderList = todos.map((item, index) => {
     return (
       <li
         onClick={changeStatus.bind(this, index)}
