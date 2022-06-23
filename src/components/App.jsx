@@ -1,13 +1,25 @@
-import './App.css';
-import { ItemsList } from './ItemsList';
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import "./App.css";
+import { ItemsListState } from "./ItemsListState";
+import { TopMenu } from "./TopMenu";
+import { ItemsListReducer } from './ItemsListReducer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       <ItemsList />
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <TopMenu />
+          <div className="body">
+            <Routes>
+              <Route path="/state" element={<ItemsListState />}></Route>
+              <Route path="/reducer" element={<ItemsListReducer />}></Route>
+              <Route path="*" element={<Navigate replace to="state" />}></Route>
+            </Routes>
+          </div>
+        </header>
+      </div>
+    </BrowserRouter>
   );
 }
 

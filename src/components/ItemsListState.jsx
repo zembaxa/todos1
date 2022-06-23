@@ -1,15 +1,14 @@
 import React from "react";
 import { todos } from "../todo";
 
-export const ItemsList = () => {
+export const ItemsListState = () => {
   const [todoItems, setTodoItems] = React.useState(todos);
 
   // updates status of an item
   const changeStatus = (indx) => {
-    // console.log("click", indx, todos[0]);
-    todoItems[indx].status = todoItems[indx].status === "done" ? "todo" : "done";
+    todoItems[indx].status =
+      todoItems[indx].status === "done" ? "todo" : "done";
     setTodoItems([...todoItems]);
-    console.log("todos", todoItems);
   };
 
   // renders list of items
@@ -25,7 +24,10 @@ export const ItemsList = () => {
     );
   });
 
-  // console.log("Render");
-
-  return <ul>{renderList}</ul>;
+  return (
+    <>
+      <h1>State</h1>
+      <ul>{renderList}</ul>
+    </>
+  );
 };
