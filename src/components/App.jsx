@@ -3,6 +3,7 @@ import "./App.css";
 import { ItemsListState } from "./ItemsListState";
 import { TopMenu } from "./TopMenu";
 import { ItemsListReducer } from './ItemsListReducer';
+import { ItemsListStateInput } from "./ItemsListStateInput";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Routes>
               <Route path="/state" element={<ItemsListState />}></Route>
               <Route path="/reducer" element={<ItemsListReducer />}></Route>
+              <Route path="/input" element={<ItemsListStateInput />}></Route>
               <Route path="*" element={<Navigate replace to="state" />}></Route>
             </Routes>
           </div>

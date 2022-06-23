@@ -9,6 +9,9 @@ export function TopMenu() {
       <div>
         <Link to="/reducer">useReducer</Link>
       </div>
+      <div>
+        <Link to="/input">withInput</Link>
+      </div>
     </>
   );
 }
