@@ -1,10 +1,11 @@
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { TopMenu } from "./TopMenu";
 import { ItemsListReducer } from "./items/ItemsListReducer";
 import { TodosContextProvider } from "./providers/TodosContext";
 import { ItemsListState } from './items/ItemsListState';
 import { ItemsListStateInput } from './items/ItemsListStateInput';
+import { ItemsListContextInput } from "./items/ItemsListContextInput";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/state" element={<ItemsListState />}></Route>
                 <Route path="/reducer" element={<ItemsListReducer />}></Route>
                 <Route path="/input" element={<ItemsListStateInput />}></Route>
+                <Route path="/context" element={<ItemsListContextInput />}></Route>
                 <Route
                   path="*"
                   element={<Navigate replace to="state" />}
