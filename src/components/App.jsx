@@ -6,6 +6,7 @@ import { TodosContextProvider } from "./providers/TodosContext";
 import { ItemsListState } from './items/ItemsListState';
 import { ItemsListStateInput } from './items/ItemsListStateInput';
 import { ItemsListContextInput } from "./items/ItemsListContextInput";
+import { ItemsListContextReducerInput } from './items/ItemsListContextReducerInput';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/reducer" element={<ItemsListReducer />}></Route>
                 <Route path="/input" element={<ItemsListStateInput />}></Route>
                 <Route path="/context" element={<ItemsListContextInput />}></Route>
+                <Route path="/context-reducer" element={<ItemsListContextReducerInput />}></Route>
                 <Route
                   path="*"
                   element={<Navigate replace to="state" />}
