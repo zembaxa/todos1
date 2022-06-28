@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { HelloWordContext } from "../providers/TodosContext";
 
 export const ItemsAdd = ({ addTodoFn }) => {
   const [todoInput, setTodoInput] = React.useState("");
+  const helloWorld = useContext(HelloWordContext);
 
   // button click handler; adds new todo item to the collection
   const onTodoAdd = () => {
@@ -26,6 +28,7 @@ export const ItemsAdd = ({ addTodoFn }) => {
   return (
     <>
       <div>
+        <h1>Context value: {helloWorld}</h1>
         <label>New todo</label> <br />
         <input type="text" onChange={onInputChange} value={todoInput} /> <br />
         <button onClick={onTodoAdd} disabled={todoInput.length === 0}>
