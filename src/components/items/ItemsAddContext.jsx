@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
-import { HelloWordContext } from "../providers/TodosContext";
+import { TodosContext } from "../providers/TodosContext";
 
-export const ItemsAddContext = ({ addTodoFn }) => {
+export const ItemsAddContext = () => {
   const [todoInput, setTodoInput] = React.useState("");
-  const helloWorld = useContext(HelloWordContext);
+  const store = useContext(TodosContext);
+
+  // create new array to break the reference
+  const todoItems = [...store.todoItems];
 
   // button click handler; adds new todo item to the collection
   const onTodoAdd = () => {
@@ -13,8 +16,8 @@ export const ItemsAddContext = ({ addTodoFn }) => {
       txt: todoInput,
     };
 
-    // push the item to the collection
-    addTodoFn(newTodoItem);
+    todoItems.push(newTodoItem);
+    store.setTodoItems([...todoItems]);
 
     // clear the input
     setTodoInput("");
@@ -28,7 +31,6 @@ export const ItemsAddContext = ({ addTodoFn }) => {
   return (
     <>
       <div>
-        <h1>Context value: {helloWorld}</h1>
         <label>New todo</label> <br />
         <input type="text" onChange={onInputChange} value={todoInput} /> <br />
         <button onClick={onTodoAdd} disabled={todoInput.length === 0}>

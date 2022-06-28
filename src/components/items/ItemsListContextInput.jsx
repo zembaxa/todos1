@@ -1,21 +1,19 @@
-import React from "react";
-import { todos } from "../../todo";
+import React, { useContext } from "react";
 import { ItemsAddContext } from "./ItemsAddContext";
+import { TodosContext } from "../providers/TodosContext";
 
 export const ItemsListContextInput = () => {
-  const [todoItems, setTodoItems] = React.useState(todos);
+  const store = useContext(TodosContext);
+  
+  // create new array to break the reference
+  const todoItems = [...store.todoItems];
 
   // updates status of an item
   const changeStatus = (indx) => {
     todoItems[indx].status =
       todoItems[indx].status === "done" ? "todo" : "done";
-    setTodoItems([...todoItems]);
+      store.setTodoItems([...todoItems]);
   };
-
-  const addTodoItem = (todoItem) => {
-    todoItems.push(todoItem);
-    setTodoItems([...todoItems]);
-  }
 
   // renders list of items
   const renderList = todoItems.map((item, index) => {
@@ -33,7 +31,7 @@ export const ItemsListContextInput = () => {
   return (
     <>
       <h1>State</h1>
-      <ItemsAddContext addTodoFn={addTodoItem}/>
+      <ItemsAddContext />
       <ul>{renderList}</ul>
     </>
   );
