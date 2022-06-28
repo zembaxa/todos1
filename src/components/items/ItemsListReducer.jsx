@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { todos } from "../todo";
+import { todos } from "../../todo";
 
 // this is a reducer function that modifies current state
 const reducer = (state, action) => {

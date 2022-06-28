@@ -1,5 +1,5 @@
 import React from "react";
-import { todos } from "../todo";
+import { todos } from "../../todo";
 import { ItemsAdd } from './ItemsAdd';
 
 export const ItemsListStateInput = () => {

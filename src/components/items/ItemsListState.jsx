@@ -1,5 +1,5 @@
 import React from "react";
-import { todos } from "../todo";
+import { todos } from '../../todo';
 
 export const ItemsListState = () => {
   const [todoItems, setTodoItems] = React.useState(todos);
