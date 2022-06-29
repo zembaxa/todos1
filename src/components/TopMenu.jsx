@@ -18,6 +18,9 @@ export function TopMenu() {
       <div>
         <Link to="/context-reducer">useContextReducer</Link>
       </div>
+      <div>
+        <Link to="/counter">Redux</Link>
+      </div>
     </div>
   );
 }
