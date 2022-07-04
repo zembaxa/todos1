@@ -5,6 +5,9 @@ export const ItemsAddContextReducer = () => {
   const [todoInput, setTodoInput] = React.useState("");
   const store = useContext(TodosContext);
 
+  // create new array to break the reference
+  const todoItems = [...store.todoItems];
+
   // button click handler; adds new todo item to the collection
   const onTodoAdd = () => {
     // construct new todo item
@@ -13,10 +16,8 @@ export const ItemsAddContextReducer = () => {
       txt: todoInput,
     };
 
-    store.dispatch({
-      type: "add",
-      newItem: newTodoItem,
-    });
+    todoItems.push(newTodoItem);
+    store.setTodoItems([...todoItems]);
 
     // clear the input
     setTodoInput("");
