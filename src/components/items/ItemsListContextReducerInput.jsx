@@ -1,27 +1,17 @@
-import React, { useContext } from "react";
-import { TodosContext } from "../providers/TodosContext";
+import React from "react";
 import { ItemsAddContextReducer } from './ItemsAddContextReducer';
+import { useDispatch, useSelector } from 'react-redux'
+import { counterSlice } from "../../redux/reducer";
 
 export const ItemsListContextReducerInput = () => {
-  const store = useContext(TodosContext);
-
-  // create new array to break the reference
-  const todoItems = [...store.todoItems];
+  const todoItems = useSelector((state) => state.counter.todos);
+  const dispatch = useDispatch();
 
   // updates status of an item
   const changeStatus = (index, status) => {
     switch (status) {
-      case "todo":
-        store.dispatch({
-          type: "complete",
-          index: index,
-        });
-        return;
-      case "done":
-        store.dispatch({
-          type: "undo",
-          index: index,
-        });
+      case 'todo':
+        dispatch(counterSlice.actions.complete({index: index}));
         return;
       default:
         return;

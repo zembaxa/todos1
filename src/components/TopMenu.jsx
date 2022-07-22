@@ -16,7 +16,7 @@ export function TopMenu() {
         <Link to="/context">useContext</Link>
       </div>
       <div>
-        <Link to="/context-reducer">useContextReducer</Link>
+        <Link to="/context-reducer">Redux List</Link>
       </div>
       <div>
         <Link to="/counter">Redux</Link>
